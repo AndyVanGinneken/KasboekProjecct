@@ -1,0 +1,5 @@
+[Tue Dec 30 13:51:30.732158 2014] [mpm_winnt:notice] [pid 14580:tid 528] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
+[Tue Dec 30 13:51:30.732158 2014] [mpm_winnt:notice] [pid 14580:tid 528] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
+[Tue Dec 30 13:51:30.732158 2014] [core:notice] [pid 14580:tid 528] AH00094: Command line: 'C:\\Users\\Andy\\Desktop\\ProjectwerkProg4\\DB/apache2/bin/httpd_usbwv8.exe -d C:/Users/Andy/Desktop/ProjectwerkProg4/DB/apache2'
+[Tue Dec 30 13:51:30.757158 2014] [mpm_winnt:notice] [pid 14580:tid 528] AH00418: Parent: Created child process 14688
+[Tue Dec 30 13:51:31.694470 2014] [mpm_winnt:notice] [pid 14688:tid 556] AH00354: Child: Starting 64 worker threads.
