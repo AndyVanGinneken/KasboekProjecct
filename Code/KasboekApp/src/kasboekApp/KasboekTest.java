@@ -53,9 +53,10 @@ public class KasboekTest {
 //        }
         
         
-//        // test GetById
+//        // test GetById and getLastinsert
 //        Kasboek kasbo = ks.GetById(1);
-//        System.out.println("" + kasbo.getCommentaar());
+          Kasboek kasbo = ks.getLastRecord();
+        System.out.println("" + kasbo.getCommentaar());
 //        Kas kass = kasbo.getBeginKas();
 //        System.out.println(""  + kass.getVijfCenten());
         

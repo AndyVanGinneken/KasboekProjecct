@@ -106,7 +106,7 @@ public class KasboekService {
         return kasboeken;
         }
         
-        public List<Kasboek> FindByYearAndMonth(int year, int month){
+        public List<Kasboek> findByYearAndMonth(int year, int month){
             EntityManagerFactory emf = Persistence.createEntityManagerFactory("KasboekPU");
             EntityManager em = emf.createEntityManager();
             // jpa kent WHERE YEAR(k.datum) niet dus daarom FUNC('YEAR',k.datum)
@@ -117,11 +117,35 @@ public class KasboekService {
             return kasboeken;
         }
         
-        public Kasboek GetById(int id){
+        public Kasboek getById(int id){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("KasboekPU");
         EntityManager em = emf.createEntityManager();
         Kasboek kasboek = em.find(Kasboek.class, id );
         return kasboek;
         }
+        
+
+//
+//        public Kasboek getLastRecord() {
+////        EntityManagerFactory emf = Persistence.createEntityManagerFactory("KasboekPU");
+////        EntityManager em = emf.createEntityManager();
+////        Query q = em.createQuery("SELECT k FROM Kasboek k ORDER BY k.id DESC");
+////        Kasboek kasboek =(Kasboek) q.setMaxResults(1).getSingleResult();
+//        return null;
+//        }
+
+    public Kasboek getLastRecord() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("KasboekPU");
+        EntityManager em = emf.createEntityManager();
+        Query q = em.createQuery("SELECT k FROM Kasboek k ORDER BY k.id DESC");
+        Kasboek kasboek =(Kasboek) q.setMaxResults(1).getSingleResult();
+        return kasboek;
+    }
+
+    
+
+
+
+
         
 }
