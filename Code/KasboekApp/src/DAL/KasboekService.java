@@ -123,16 +123,6 @@ public class KasboekService {
         Kasboek kasboek = em.find(Kasboek.class, id );
         return kasboek;
         }
-        
-
-//
-//        public Kasboek getLastRecord() {
-////        EntityManagerFactory emf = Persistence.createEntityManagerFactory("KasboekPU");
-////        EntityManager em = emf.createEntityManager();
-////        Query q = em.createQuery("SELECT k FROM Kasboek k ORDER BY k.id DESC");
-////        Kasboek kasboek =(Kasboek) q.setMaxResults(1).getSingleResult();
-//        return null;
-//        }
 
     public Kasboek getLastRecord() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("KasboekPU");
