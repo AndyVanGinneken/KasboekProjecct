@@ -4,20 +4,19 @@
     Author     : Andy
 --%>
 
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.List"%>
 <%@page import="BLL.Kasboek"%>
 <%@page import="ViewModel.KasboekList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<%@include file="/header.jsp" %>
+<%//@include file="/header.jsp" %>
 <%
-    KasboekList kasboeken =(KasboekList) session.getAttribute("searchResult");
+    List<Kasboek> kasboeken =(List<Kasboek>) session.getAttribute("searchResult");
     int jaar = (Integer)session.getAttribute("jaar");
     int maand =(Integer)session.getAttribute("maand");
-    
-    String error;
-    if(kasboeken == null){
-        error ="Er zijn geen kasboeken.";
-    }
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+   
 %>
 <!DOCTYPE html>
 <html>
@@ -28,21 +27,24 @@
     <body>
         <h1>kasboeken <%= maand%>/<%= jaar%> </h1>
         
-        <table>
+        <table class="table">
             <tr>
                 <th>Datum</th>
                 <th>Av</th>
                 <th>Commentaar</th>
-                <th>Omzet</th>
+                
                 <th></th>
                 
             </tr>
-            <%for(Kasboek kasboek : kasboeken.getKasboeken()){%>
-            <td><%= kasboek.getDatum()%></td>
+            <%for(Kasboek kasboek : kasboeken){%>
+            <tr>
+            <td><%= sdf.format(kasboek.getDatum())%></td>
             <td><%= kasboek.getAv()%></td>
             <td><%= kasboek.getCommentaar()%></td>
-            <td><%= kasboek.omzet()%></td>
-            <td><a href="KasboekDetails?kasboekId=<%=kasboek.getId()%>">Details</a></td>
+            
+            <td><a href="Kasboek?id=<%=kasboek.getId()%>">Details</a></td>
+            </tr>
+            <%}%>
         </table>
     </body>
 </html>

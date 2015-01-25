@@ -13,7 +13,7 @@
      username = ac.getUsername();
     } else {
      //String message = "U bent niet ingelogd!";
-     response.sendRedirect("index.jsp");
+     //response.sendRedirect("index.jsp");
      return;
     }  
 %>

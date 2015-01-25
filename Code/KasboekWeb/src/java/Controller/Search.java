@@ -38,10 +38,10 @@ public class Search extends HttpServlet {
         
             int jaar =Integer.parseInt(request.getParameter("jaar"));
             int maand =Integer.parseInt(request.getParameter("maand"));
-            KasboekService ks = new KasboekService();            
-            List<Kasboek> kasboekLs = ks.findByYearAndMonth(jaar, maand);
+                        
+            List<Kasboek> kasboeken = KasboekService.findByYearAndMonth(jaar, maand);
             HttpSession session = request.getSession();
-            session.setAttribute("searchResult", kasboekLs);
+            session.setAttribute("searchResult", kasboeken);
             session.setAttribute("jaar", jaar);
             session.setAttribute("maand", maand);
             RequestDispatcher rd = request.getRequestDispatcher("searchResult.jsp");

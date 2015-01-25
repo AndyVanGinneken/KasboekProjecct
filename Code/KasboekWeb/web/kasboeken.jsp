@@ -25,7 +25,11 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <table>
+        <form method="POST" action="Search">
+            <input type="text" name="maand" placeholder="maand bv. 01" required>
+            <input type="text" name="jaar" placeholder="jaar bv. 2014" required> 
+            <input type="submit" value="Zoek" /></form>
+        <table class="table" >
             <tr>
                 <th>Datum</th>
                 <th>Av</th>

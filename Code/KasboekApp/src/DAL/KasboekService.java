@@ -106,7 +106,7 @@ public class KasboekService {
         return kasboeken;
         }
         
-        public List<Kasboek> findByYearAndMonth(int year, int month){
+        public static List<Kasboek> findByYearAndMonth(int year, int month){
             EntityManagerFactory emf = Persistence.createEntityManagerFactory("KasboekPU");
             EntityManager em = emf.createEntityManager();
             // jpa kent WHERE YEAR(k.datum) niet dus daarom FUNC('YEAR',k.datum)
