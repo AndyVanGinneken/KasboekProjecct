@@ -4,9 +4,73 @@
         <servlet-name>Login</servlet-name>
         <servlet-class>Controller.Login</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Kasboeken</servlet-name>
+        <servlet-class>Controller.Kasboeken</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>KasboekDetails</servlet-name>
+        <servlet-class>Controller.KasboekDetails</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>Controller.Logout</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Search</servlet-name>
+        <servlet-class>Controller.Search</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Register</servlet-name>
+        <servlet-class>Controller.Register</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChangePassword</servlet-name>
+        <servlet-class>Controller.ChangePassword</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteAccount</servlet-name>
+        <servlet-class>Controller.DeleteAccount</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Accounts</servlet-name>
+        <servlet-class>Controller.Accounts</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Kasboeken</servlet-name>
+        <url-pattern>/Kasboeken</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>KasboekDetails</servlet-name>
+        <url-pattern>/Kasboek</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Search</servlet-name>
+        <url-pattern>/Search</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Register</servlet-name>
+        <url-pattern>/Register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangePassword</servlet-name>
+        <url-pattern>/ChangePassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteAccount</servlet-name>
+        <url-pattern>/DeleteAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Accounts</servlet-name>
+        <url-pattern>/Accounts</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

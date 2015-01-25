@@ -99,7 +99,7 @@ public class KasboekService {
         }
         }
         
-        public List<Kasboek> getAllKasboeken(){
+        public static List<Kasboek> getAllKasboeken(){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("KasboekPU");
         EntityManager em = emf.createEntityManager();
         List<Kasboek> kasboeken =  em.createNamedQuery("Kasboek.findAll",Kasboek.class).getResultList();

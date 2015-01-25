@@ -13,11 +13,10 @@ import DAL.AccountDA;
  * @author Andy
  */
 public class AccountService {
-    private AccountDA da;
     
     
-    public boolean checkLogin(String email, String password){
-        Account account = da.getByEmail(email);
+    public static boolean checkLogin(String email, String password){
+        Account account = AccountDA.getByEmail(email);
         if(account == null){
             
             return false;
@@ -27,19 +26,16 @@ public class AccountService {
         }
     }
         
-    public void newUser(String username, String email, String password, boolean isAdmin){
-        Account account = new Account();
-        String pass = BCrypt.hashpw(password, BCrypt.genSalt());
-        account.setUsername(username);
-        account.setEmail(email);
-        account.setPassword(pass);
-        account.setIsAdmin(isAdmin);  
-        da.saveAccount(account);
+    public static String encryptPass(String password){
+        
+        String pass = BCrypt.hashpw(password, BCrypt.gensalt());
+          
+        return pass;
     }
     
-    public void changePassword(Account account, String password){
-        String pass = BCrypt.hashpw(password, BCrypt.genSalt());
-        da.UpdatePassword(account.getId(), pass);
+    public static void changePassword(Account account, String password){
+        String pass = BCrypt.hashpw(password, BCrypt.gensalt());
+        AccountDA.UpdatePassword(account.getId(), pass);
         
     }
 }

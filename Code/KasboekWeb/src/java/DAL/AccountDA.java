@@ -18,7 +18,7 @@ import javax.persistence.Persistence;
  */
 public class AccountDA {
     
-    public Account getByEmail(String email){
+    public static Account getByEmail(String email){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("KasboekPU");
         EntityManager em = emf.createEntityManager();
         Account account = em.find(Account.class, email);
@@ -33,26 +33,27 @@ public class AccountDA {
 //        return account;
 //        }
     
-     public void saveAccount(Account account){ 
+     public static void saveAccount(Account account){ 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("KasboekPU");
         EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
-        if(account.getId()!= null)
+        if(account.getId()== null)
         {
-            Account toUpdate = em.find(Account.class, account.getId());
+            transaction.begin();
+            em.persist(account);
+            transaction.commit();
+            
+        }
+        else{
+        Account toUpdate = em.find(Account.class, account.getId());
             transaction.begin();
             toUpdate.setEmail(account.getEmail());
             toUpdate.setUsername(account.getUsername());
             toUpdate.setIsAdmin(account.getIsAdmin());
             transaction.commit();
         }
-        else{
-        transaction.begin();
-        em.persist(account);
-        transaction.commit();
         }
-        }
-     public void deleteAccount(int id){
+     public static void deleteAccount(int id){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("KasboekPU");
         EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
@@ -62,7 +63,7 @@ public class AccountDA {
         transaction.commit();
         
      }
-    public void UpdatePassword(int id, String password){
+    public static void UpdatePassword(int id, String password){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("KasboekPU");
         EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
@@ -71,7 +72,7 @@ public class AccountDA {
         account.setPassword(password);
         transaction.commit();
      }
-        public List<Account> getAllAccounts(boolean isAdmin){
+        public static List<Account> getAllAccounts(boolean isAdmin){
         if(isAdmin){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("KasboekPU");
         EntityManager em = emf.createEntityManager();

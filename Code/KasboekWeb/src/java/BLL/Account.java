@@ -23,14 +23,13 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author Andy
  */
-@Entity
-@Table(name = "account")
+@Entity @Table(name = "account")
 @XmlRootElement
 @NamedQuery(name = "Account.findAll", query = "SELECT a FROM Account a")
 public class Account implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Basic(optional = false)
     @Column(name = "Id")
     private Integer id;
